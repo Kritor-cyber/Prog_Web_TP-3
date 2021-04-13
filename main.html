@@ -32,6 +32,7 @@
                     <div>
                         <button type="button" onclick="ajouter()" id="boutonAjouter" >Ajouter</button>
                         <button type="button" onclick="supprimer()">Tout supprimer</button>
+                        <button type="button" onclick="rotationer()" id="rotationBouton">Rotationer</button>
                     </div>
                 </fieldset>
             </form>
@@ -64,6 +65,8 @@
         var compteur;
         var visible = true;
         var boutonAjouter = document.getElementById("boutonAjouter");
+        var formulaire = document.getElementById("formulaire");
+        var aLEndroit = true;
         var tempsEcouler = window.setInterval(peutAjouter, 1000);
         let spam = [0, 0];
 
@@ -79,7 +82,7 @@
                 boutonAjouter.setAttribute("id", "");
             }
 
-            boutonAjouter.textContent = "Ajouter (" + (10-compteur) + ")";
+            boutonAjouter.textContent = "Ajouter (" + (10 - compteur) + ")";
         }
 
         function reinitialisationBoutonAjouter() {
@@ -124,7 +127,7 @@
                     alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de '.' après le '@') !!!");
                 else {
                     index = td[2].textContent.indexOf(".", index);
-                    if (index == td[2].textContent.length-1)
+                    if (index == td[2].textContent.length - 1)
                         alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de caractères après le '.') !!!");
                     else {
                         if (ajoutPossible) {
@@ -176,6 +179,17 @@
             while (tbody.childElementCount > 0) {  // Tant qu'il y a des lignes autres que la première
                 tbody.removeChild(tbody.children[0]); // On supprime la deuxième ligne du tableau (ainsi on garde la première, et la troisème va automatiquement devenir la deuxième)
             }
+        }
+
+        function rotationer() {
+            if (aLEndroit) {
+                formulaire.id = 'formulaire2';
+            }
+            else {
+                formulaire.id = 'formulaire';
+            }
+
+            aLEndroit = !aLEndroit;
         }
     </script>
 </body>

@@ -130,4 +130,14 @@ button:hover {
     background-color: white;
     position: sticky;
     top: 10px;
+    transform: rotateZ(0);
+    transition: transform 1s;
+}
+
+#formulaire2 {
+    background-color: white;
+    position: sticky;
+    top: 10px;
+    transform: rotateZ(180deg);
+    transition: transform 1s;
 }
