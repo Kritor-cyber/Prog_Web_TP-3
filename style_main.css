@@ -65,6 +65,11 @@ img {
     flex-wrap: wrap;
 }
 
+#boutonAjouter {
+    background-color: rgb(50, 50, 50);
+    border-radius: 14px 14px;
+}
+
 button {
     text-transform: uppercase;
     border: none;

@@ -61,18 +61,21 @@
         console.log("un message dans la console");
 
         var ajoutPossible = false;
-        var compteur = 0;
+        var compteur;
         var boutonAjouter = document.getElementById("boutonAjouter");
-        boutonAjouter.textContent = "Ajouter (" + 10 + ")";
         var tempsEcouler = window.setInterval(peutAjouter, 1000);
+
+        reinitialisationBoutonAjouter();
 
         function peutAjouter() {
             compteur++;
             if (compteur > 10)
                 compteur = 10;
 
-            if (compteur == 10)
+            if (compteur == 10) {
                 ajoutPossible = true;
+                boutonAjouter.setAttribute("id", "");
+            }
 
             boutonAjouter.textContent = "Ajouter (" + (10-compteur) + ")";
         }
@@ -80,6 +83,7 @@
         function reinitialisationBoutonAjouter() {
             compteur = 0;
             boutonAjouter.textContent = "Ajouter (" + 10 + ")";
+            boutonAjouter.setAttribute("id", "boutonAjouter");
         }
 
         function ajouter() {
