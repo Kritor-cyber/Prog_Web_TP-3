@@ -60,6 +60,13 @@
     <script>
         console.log("un message dans la console");
 
+        var ajoutPossible = false;
+        var tempsEcouler = window.setInterval(peutAjouter, 10000);
+
+        function peutAjouter() {
+            ajoutPossible = true;
+        }
+
         function ajouter() {
 
             // Creation des variables
@@ -99,15 +106,22 @@
                     if (index == td[2].textContent.length-1)
                         alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de caractères après le '.') !!!");
                     else {
-                        // Ajout du tr au tableau sur la page web
-                        var tbody = document.getElementById("tableau").children[1];
+                        if (ajoutPossible) {
+                            window.clearInterval(); // Réinitialisation du temps pour avoir min 10 secondes ne sont pas écouler (sinon le temps d'attente peut lui être inférieur)
+                            ajoutPossible = false;  // Impossibilité d'ajouter un nouvel élément tant que 10 secondes ne se sont pas écouler
+                            // Ajout du tr au tableau sur la page web
+                            var tbody = document.getElementById("tableau").children[1];
 
-                        tbody.appendChild(tr);
+                            tbody.appendChild(tr);
 
-                        if (tbody.children.length > 1) {
-                            for (var j = 0; j < 4; j++) {
-                                tbody.children[tbody.children.length - 2].children[j].classList.replace("celluleDerniereLigne", "cellule");
+                            if (tbody.children.length > 1) {
+                                for (var j = 0; j < 4; j++) {
+                                    tbody.children[tbody.children.length - 2].children[j].classList.replace("celluleDerniereLigne", "cellule");
+                                }
                             }
+                        }
+                        else {
+                            alert("Il faut attendre 10 secondes entre 2 ajouts.");
                         }
                     }
                 }
