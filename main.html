@@ -62,8 +62,10 @@
 
         var ajoutPossible = false;
         var compteur;
+        var visible = true;
         var boutonAjouter = document.getElementById("boutonAjouter");
         var tempsEcouler = window.setInterval(peutAjouter, 1000);
+        let spam = [0, 0];
 
         reinitialisationBoutonAjouter();
 
@@ -141,7 +143,28 @@
                             }
                         }
                         else {
-                            alert("Il faut attendre 10 secondes entre 2 ajouts.");
+                            //////////////////////alert("Il faut attendre 10 secondes entre 2 ajouts.");
+                            if (visible == true) {
+                                if (spam[0] == 0) {
+                                    spam[0] = 1;
+                                    spam[1] = compteur;
+                                }
+                                else {
+                                    spam[0]++;
+                                    if (spam[0] >= 5) {
+                                        if (Math.abs(spam[1] - compteur) <= 2) {
+                                            document.getElementById("formulaire").style.visibility = "hidden";
+                                            window.setInterval(() => { document.getElementById("formulaire").style.visibility = "visible"; visible = true; }, 5000);
+                                            visible = false;
+                                            spam[0] = 0;
+                                        }
+                                        else {
+                                            spam[0] = 1;
+                                            spam[1] = compteur;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
