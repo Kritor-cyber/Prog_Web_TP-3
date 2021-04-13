@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- Redesign. -->
+<!-- 7. -->
 
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div>
-                        <button type="button" onclick="ajouter()">Ajouter</button>    <!-- Le bouton fonctionne (on a la popup) mais il est nécessaire de remplir les champs avant -->
+                        <button type="button" onclick="ajouter()">Ajouter</button>
                         <button type="reset">Tout supprimer</button>
                     </div>
                 </fieldset>
@@ -44,7 +44,6 @@
                         <th class="cellule">Email</th>
                         <th class="cellule">Rôle</th>
                     </tr>
-                    <!-- Est Finalement INUTILE <tr id="bodyTableau"><!-- Préparation pour l'ajout en js de nouveaux éléments </tr> -->
                 </thead>
             </table>
         </div>
@@ -59,14 +58,6 @@
         console.log("un message dans la console");
 
         function ajouter() {
-            alert();
-
-            // Ajout de l'affichage dans la console de la valeur du champ prénom (2 méthodes permettant de récupérer la valeur du champ)
-            //console.log(document.getElementById("firstname").value);
-            //console.log(document.forms.coord.user_firstname.value);
-
-            // Nous n'avons pour le moment qu'un tableau, donc nous lui avons assigné un id pour le retrouver facilement (avec classe, il aurait fallu connaitre sa position dans la liste des éléments de cette classe -ici 0 car un élément-)
-            //console.log(document.getElementById("tableau")); // Nous constatons que ce n'est pas du texte qui est affiché dans la console, mais la liste des éléments caractérisants le tableau sur la page
 
             // Creation des variables
             var tr = document.createElement("tr");
@@ -83,11 +74,34 @@
             td[2].textContent = document.forms.coord.user_email.value;
             td[3].textContent = document.forms.coord.user_role.value;
 
-            // Ajout du tr au tableau sur la page web
-            document.getElementById("tableau").appendChild(tr);
-        }
+            if (td[0].textContent.length == 0) {
+                alert("Merci d'entrer un prénom valide !!!");
+            }
+            else if (td[1].textContent.length == 0) {
+                alert("Merci d'entrer un nom de famille valide !!!");
+            }
+            else if (td[2].textContent.length == 0) {
+                alert("Merci d'entrer une adresse électronique valide !!!");
+            }
+            else if (td[2].textContent.indexOf("@") == -1) {
+                alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de '@') !!!");
+            }
+            else {
 
-        //ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
+                var index = td[2].textContent.lastIndexOf("@");
+                if (td[2].textContent.indexOf(".", index) == -1)
+                    alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de '.' après le '@') !!!");
+                else {
+                    index = td[2].textContent.indexOf(".", index);
+                    if (index == td[2].textContent.length-1)
+                        alert("Votre adresse mail ne semble pas valide, merci de la vérifier (pas de caractères après le '.') !!!");
+                    else {
+                        // Ajout du tr au tableau sur la page web
+                        document.getElementById("tableau").appendChild(tr);
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
