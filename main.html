@@ -59,6 +59,15 @@
         console.log("un message dans la console");
 
         var tr = document.createElement("tr");
+        let td = [document.createElement("td"), document.createElement("td"), document.createElement("td"), document.createElement("td")];
+        td[0].textContent = "Michel";
+        td[1].textContent = "Dupont";
+        td[2].textContent = "michel@dupont.test";
+        td[3].textContent = "Enseignant";
+
+        for (var i = 0; i < 4; i++) {
+            tr.appendChild(td[i]);
+        }
 
         function ajouter() {
             alert();
