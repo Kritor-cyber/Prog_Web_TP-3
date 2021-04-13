@@ -112,9 +112,6 @@ button:hover {
 
 .celluleDerniereLigne {
     text-align: center;
-    border-top-style: inset;
-    border-left-style: inset;
-    border-right-style: inset;
-    border-width: 1px;
+    /* Pas de bordure */
     padding: 10px;
 }

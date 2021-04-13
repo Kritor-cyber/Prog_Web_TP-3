@@ -68,7 +68,6 @@
                 tr.appendChild(td[i]);
                 td[i].classList.add("celluleDerniereLigne"); // Ajout de l'appartenance des nouvelles celles à la classe "cellule"
             }
-
             // Mise des valeurs dans les td
             td[0].textContent = document.forms.coord.user_firstname.value;
             td[1].textContent = document.forms.coord.user_name.value;
@@ -99,6 +98,12 @@
                     else {
                         // Ajout du tr au tableau sur la page web
                         document.getElementById("tableau").appendChild(tr);
+
+                        if (document.getElementById("tableau").children.length > 2) {
+                            for (var j = 0; j < 4; j++) {
+                                document.getElementById("tableau").children[document.getElementById("tableau").children.length - 2].children[j].classList.replace("celluleDerniereLigne", "cellule");
+                            }
+                        }
                     }
                 }
             }
