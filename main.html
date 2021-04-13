@@ -23,7 +23,7 @@
                         <input type="text" class="entree" id="name" name="user_name" placeholder="Dupont" class="textZone" required />
                         <input type="text" class="entree" id="firstname" name="user_firstname" placeholder="Michel" class="textZone" required />
                         <input type="email" class="entree" id="email" name="user_email" placeholder="michel.dupont@dupont.dupont" class="textZone" required />
-                        <select id="role">
+                        <select id="role" name="user_role">
                             <option selected>Etudiant</option>
                             <option>Enseignant</option>
                         </select>
@@ -58,30 +58,36 @@
     <script>
         console.log("un message dans la console");
 
-        var tr = document.createElement("tr");
-        let td = [document.createElement("td"), document.createElement("td"), document.createElement("td"), document.createElement("td")];
-        td[0].textContent = "Michel";
-        td[1].textContent = "Dupont";
-        td[2].textContent = "michel@dupont.test";
-        td[3].textContent = "Enseignant";
-
-        for (var i = 0; i < 4; i++) {
-            tr.appendChild(td[i]);
-        }
-
         function ajouter() {
             alert();
 
             // Ajout de l'affichage dans la console de la valeur du champ prénom (2 méthodes permettant de récupérer la valeur du champ)
             //console.log(document.getElementById("firstname").value);
-            console.log(document.forms.coord.user_firstname.value);
+            //console.log(document.forms.coord.user_firstname.value);
 
             // Nous n'avons pour le moment qu'un tableau, donc nous lui avons assigné un id pour le retrouver facilement (avec classe, il aurait fallu connaitre sa position dans la liste des éléments de cette classe -ici 0 car un élément-)
-            console.log(document.getElementById("tableau")); // Nous constatons que ce n'est pas du texte qui est affiché dans la console, mais la liste des éléments caractérisants le tableau sur la page
+            //console.log(document.getElementById("tableau")); // Nous constatons que ce n'est pas du texte qui est affiché dans la console, mais la liste des éléments caractérisants le tableau sur la page
+
+            // Creation des variables
+            var tr = document.createElement("tr");
+            let td = [document.createElement("td"), document.createElement("td"), document.createElement("td"), document.createElement("td")];
+
+            // Ajout des td au tr
+            for (var i = 0; i < 4; i++) {
+                tr.appendChild(td[i]);
+            }
+
+            // Mise des valeurs dans les td
+            td[0].textContent = document.forms.coord.user_firstname.value;
+            td[1].textContent = document.forms.coord.user_name.value;
+            td[2].textContent = document.forms.coord.user_email.value;
+            td[3].textContent = document.forms.coord.user_role.value;
+
+            // Ajout du tr au tableau sur la page web
             document.getElementById("tableau").appendChild(tr);
         }
 
-        ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
+        //ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
     </script>
 </body>
 </html>
