@@ -16,7 +16,7 @@
 
     <center>
         <div class="mainBody">
-            <form>
+            <form name="coord">
                 <fieldset>
                     <legend>Coordonnées</legend>
                     <div id="buttonsContainer">
@@ -30,7 +30,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" onclick="ajouter">Ajouter</button>    <!-- Le bouton fonctionne (on a la popup) mais il est nécessaire de remplir les champs avant -->
+                        <button type="button" onclick="ajouter()">Ajouter</button>    <!-- Le bouton fonctionne (on a la popup) mais il est nécessaire de remplir les champs avant -->
                         <button type="reset">Tout supprimer</button>
                     </div>
                 </fieldset>
@@ -60,6 +60,10 @@
 
         function ajouter() {
             alert();
+
+            // Ajout de l'affichage dans la console de la valeur du champ prénom (2 méthodes permettant de récupérer la valeur du champ)
+            //console.log(document.getElementById("firstname").value);
+            console.log(document.forms.coord.user_firstname.value);
         }
 
         ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
