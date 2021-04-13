@@ -1,9 +1,6 @@
-* {
+.main {
     font-family: Calibri, Consolas, Verdana;
     box-sizing: border-box;
-}
-
-body {
     background-color: rgb(211, 211, 211);
 }
 
@@ -27,7 +24,7 @@ img {
     display: block;
 }
 
-input {
+.entree {
     margin-right: 5px;
     flex: 1;
     border: none;
@@ -39,12 +36,12 @@ input {
     transition: caret-color 1s;
 }
 
-    input:invalid {
-        border-bottom: 2px solid rgb(255, 80, 80);
-        caret-color: rgb(255, 80, 80);
-        transition: border-bottom 1s;
-        transition: caret-color 1s;
-    }
+.entree:invalid {
+    border-bottom: 2px solid rgb(255, 80, 80);
+    caret-color: rgb(255, 80, 80);
+    transition: border-bottom 1s;
+    transition: caret-color 1s;
+}
 
 form {
     /* Ajout de l'ombre */
@@ -74,12 +71,12 @@ button {
     transition: border-radius 0.5s;
 }
 
-    button:hover {
-        background-color: rgb(127, 127, 127);
-        transition: background-color 1s;
-        border-radius: 7px 7px;
-        transition: border-radius 0.5s;
-    }
+button:hover {
+    background-color: rgb(127, 127, 127);
+    transition: background-color 1s;
+    border-radius: 7px 7px;
+    transition: border-radius 0.5s;
+}
 
 @media (min-width: 1000px) {
     form {
