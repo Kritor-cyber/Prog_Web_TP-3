@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 7. -->
+<!-- 8. -->
 
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,7 +31,7 @@
 
                     <div>
                         <button type="button" onclick="ajouter()">Ajouter</button>
-                        <button type="reset">Tout supprimer</button>
+                        <button type="button" onclick="supprimer()">Tout supprimer</button>
                     </div>
                 </fieldset>
             </form>
@@ -40,7 +40,7 @@
                 <thead>
                     <tr>
                         <th class="cellule">Prénom</th>
-                        <th class="cellule">Prénom</th>
+                        <th class="cellule">Nom</th>
                         <th class="cellule">Email</th>
                         <th class="cellule">Rôle</th>
                     </tr>
@@ -100,6 +100,12 @@
                         document.getElementById("tableau").appendChild(tr);
                     }
                 }
+            }
+        }
+
+        function supprimer() {
+            while (document.getElementById("tableau").childElementCount > 1) {  // Tant qu'il y a des lignes autres que la première
+                document.getElementById("tableau").removeChild(document.getElementById("tableau").children[1]); // On supprime la deuxième ligne du tableau (ainsi on garde la première, et la troisème va automatiquement devenir la deuxième)
             }
         }
     </script>
