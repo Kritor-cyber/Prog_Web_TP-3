@@ -36,7 +36,7 @@
                 </fieldset>
             </form>
 
-            <table class="tableau">
+            <table id="tableau">
                 <thead>
                     <tr>
                         <th class="cellule">Prénom</th>
@@ -64,6 +64,9 @@
             // Ajout de l'affichage dans la console de la valeur du champ prénom (2 méthodes permettant de récupérer la valeur du champ)
             //console.log(document.getElementById("firstname").value);
             console.log(document.forms.coord.user_firstname.value);
+
+            // Nous n'avons pour le moment qu'un tableau, donc nous lui avons assigné un id pour le retrouver facilement (avec classe, il aurait fallu connaitre sa position dans la liste des éléments de cette classe -ici 0 car un élément-)
+            console.log(document.getElementById("tableau")); // Nous constatons que ce n'est pas du texte qui est affiché dans la console, mais la liste des éléments caractérisants le tableau sur la page
         }
 
         ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
