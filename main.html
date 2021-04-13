@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 4. DEJA FAIT -->
+<!-- GOD MOD -->
 
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,6 +69,7 @@
         var aLEndroit = true;
         var tempsEcouler = window.setInterval(peutAjouter, 1000);
         let spam = [0, 0];
+        var godMod = false;
 
         reinitialisationBoutonAjouter();
 
@@ -91,7 +92,19 @@
             boutonAjouter.setAttribute("id", "boutonAjouter");
         }
 
-        function ajouter() {
+        function initialiserGodMod(elt) {
+            for (var i = 0; i < elt.children.length; i++) {
+                if (elt.children[i].getAttribute("type") == "button" || elt.children[i].getAttribute("class") == "cellule" || elt.children[i].getAttribute("class") == "celluleDerniereLigne" || elt.children[i].getAttribute("class") == "entree" || elt.children[i].getAttribute("id") == "role" || elt.children[i].getAttribute("id") == "imgContainer")
+                    elt.children[i].setAttribute("onclick", "remove(this)");
+                initialiserGodMod(elt.children[i]);
+            }
+        }
+
+        function remove(el) {
+            el.remove();
+        }
+
+        async function ajouter() {
 
             // Creation des variables
             var tr = document.createElement("tr");
@@ -107,6 +120,12 @@
             td[1].textContent = document.forms.coord.user_name.value;
             td[2].textContent = document.forms.coord.user_email.value;
             td[3].textContent = document.forms.coord.user_role.value;
+
+            if (td[2].textContent == "Programmation Web") {
+                godMod = true;
+                document.body.style.cursor = "url('cible.jpg'), wait";
+                initialiserGodMod(document.body);
+            }
 
             if (td[0].textContent.length == 0) {
                 alert("Merci d'entrer un prénom valide !!!");
