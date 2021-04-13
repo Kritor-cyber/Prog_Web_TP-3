@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<!-- 5. -->
+<!-- 2. -->
 
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,7 +30,7 @@
                     </div>
 
                     <div>
-                        <button type="button" onclick="ajouter()">Ajouter</button>
+                        <button type="button" onclick="ajouter()" id="boutonAjouter" >Ajouter</button>
                         <button type="button" onclick="supprimer()">Tout supprimer</button>
                     </div>
                 </fieldset>
@@ -61,10 +61,25 @@
         console.log("un message dans la console");
 
         var ajoutPossible = false;
-        var tempsEcouler = window.setInterval(peutAjouter, 10000);
+        var compteur = 0;
+        var boutonAjouter = document.getElementById("boutonAjouter");
+        boutonAjouter.textContent = "Ajouter (" + 10 + ")";
+        var tempsEcouler = window.setInterval(peutAjouter, 1000);
 
         function peutAjouter() {
-            ajoutPossible = true;
+            compteur++;
+            if (compteur > 10)
+                compteur = 10;
+
+            if (compteur == 10)
+                ajoutPossible = true;
+
+            boutonAjouter.textContent = "Ajouter (" + (10-compteur) + ")";
+        }
+
+        function reinitialisationBoutonAjouter() {
+            compteur = 0;
+            boutonAjouter.textContent = "Ajouter (" + 10 + ")";
         }
 
         function ajouter() {
@@ -109,6 +124,7 @@
                         if (ajoutPossible) {
                             window.clearInterval(); // Réinitialisation du temps pour avoir min 10 secondes ne sont pas écouler (sinon le temps d'attente peut lui être inférieur)
                             ajoutPossible = false;  // Impossibilité d'ajouter un nouvel élément tant que 10 secondes ne se sont pas écouler
+                            reinitialisationBoutonAjouter();
                             // Ajout du tr au tableau sur la page web
                             var tbody = document.getElementById("tableau").children[1];
 
