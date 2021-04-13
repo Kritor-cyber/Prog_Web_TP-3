@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<!-- Redesign. -->
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <metaname ="viewport" content="width=device-width" />
+    <title>Formulaire Partie 2</title>
+    <style>
+        * {
+            font-family: Calibri, Consolas, Verdana;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(211, 211, 211);
+        }
+
+        img {
+            margin-top: 10%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            background-size: cover;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            /* Image en rond */
+            border-radius: 50%;
+            box-shadow: 10px 5px 5px rgb(8, 55, 98);
+            margin-bottom: 5px;
+            aspect-ratio: 1 / 1;
+        }
+
+        .imgContainer {
+            display: block;
+        }
+
+        input {
+            margin-right: 5px;
+            flex: 1;
+            border: none;
+            border-bottom: 2px solid rgb(211, 211, 211);
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+            caret-color: black;
+            transition: border-bottom 1s;
+            transition: caret-color 1s;
+        }
+
+        input:invalid {
+            border-bottom: 2px solid rgb(255, 80, 80);
+            caret-color: rgb(255, 80, 80);
+            transition: border-bottom 1s;
+            transition: caret-color 1s;
+        }
+
+        form {
+            /* Ajout de l'ombre */
+            box-shadow: 10px 5px 5px rgb(128, 128, 128);
+            padding: 13px;
+            background-color: white;
+            /* Pour garder les enfants du <form> à gauche */
+            text-align: left;
+            width: auto;
+        }
+
+        #buttonsContainer {
+            display: flex;
+            flex-direction: row;
+
+            /* Pour avoir un affichage propre sur de petits écrans (sur plusieurs lignes si nécessaire) */
+            flex-wrap: wrap;
+        }
+
+        button {
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 5px 3px 3px rgb(200, 200, 200);
+            background-color: rgb(220, 220, 220);
+            padding: 5px;
+            transition: background-color 1s;
+            border-radius: 14px 14px;
+            transition: border-radius 0.5s;
+        }
+
+        button:hover {
+            background-color: rgb(127, 127, 127);
+            transition: background-color 1s;
+            border-radius: 7px 7px;
+            transition: border-radius 0.5s;
+        }
+
+        @media (min-width: 1000px) {
+            form {
+                width: 1000px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #buttonsContainer {
+                display: flex;
+                flex-direction: column;
+                /* Pour avoir un affichage propre sur de petits écrans (sur plusieurs lignes si nécessaire) */
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="imgContainer">
+        <img src="https://media1.tenor.com/images/9aff252fc609401538aae49e54bcb219/tenor.gif?itemid=20598651" />
+    </div>
+
+    <center>
+        <form>
+            <fieldset>
+                <legend>Coordonnées</legend>
+                <div id="buttonsContainer">
+                    <input type="text" id="name" name="user_name" placeholder="Dupont" class="textZone" required />
+                    <input type="text" id="firstname" name="user_firstname" placeholder="Michel" class="textZone" required />
+                    <input type="email" id="email" name="user_email" placeholder="michel.dupont@dupont.dupont" class="textZone" required />
+                    <select id="role">
+                        <option selected>Etudiant</option>
+                        <option>Enseignant</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit">Ajouter</button>
+                    <button type="reset">Tout supprimer</button>
+                </div>
+            </fieldset>
+
+        </form>
+    </center>
+
+    <footer style="position: fixed; bottom: 0px; left: 0px;"><p>Thibault DENIER<br>Ludovic LIU CHI PIOA</p></footer>
+</body>
+</html>
