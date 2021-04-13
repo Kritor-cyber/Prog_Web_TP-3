@@ -109,3 +109,12 @@ button:hover {
     border-width: 1px;
     padding: 10px;
 }
+
+.celluleDerniereLigne {
+    text-align: center;
+    border-top-style: inset;
+    border-left-style: inset;
+    border-right-style: inset;
+    border-width: 1px;
+    padding: 10px;
+}
