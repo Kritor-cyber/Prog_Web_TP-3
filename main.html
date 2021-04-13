@@ -44,7 +44,7 @@
                         <th class="cellule">Email</th>
                         <th class="cellule">Rôle</th>
                     </tr>
-                    <tr id="bodyTableau"><!-- Préparation pour l'ajout en js de nouveaux éléments --></tr>
+                    <!-- Est Finalement INUTILE <tr id="bodyTableau"><!-- Préparation pour l'ajout en js de nouveaux éléments </tr> -->
                 </thead>
             </table>
         </div>
@@ -78,6 +78,7 @@
 
             // Nous n'avons pour le moment qu'un tableau, donc nous lui avons assigné un id pour le retrouver facilement (avec classe, il aurait fallu connaitre sa position dans la liste des éléments de cette classe -ici 0 car un élément-)
             console.log(document.getElementById("tableau")); // Nous constatons que ce n'est pas du texte qui est affiché dans la console, mais la liste des éléments caractérisants le tableau sur la page
+            document.getElementById("tableau").appendChild(tr);
         }
 
         ajouter(); // On a bien une popup vide qui apparait à chaque rechargement de la page
