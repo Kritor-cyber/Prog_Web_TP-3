@@ -15,27 +15,42 @@
     </div>
 
     <center>
-        <form>
-            <fieldset>
-                <legend>Coordonnées</legend>
-                <div id="buttonsContainer">
-                    <input type="text" class="entree" id="name" name="user_name" placeholder="Dupont" class="textZone" required />
-                    <input type="text" class="entree" id="firstname" name="user_firstname" placeholder="Michel" class="textZone" required />
-                    <input type="email" class="entree" id="email" name="user_email" placeholder="michel.dupont@dupont.dupont" class="textZone" required />
-                    <select id="role">
-                        <option selected>Etudiant</option>
-                        <option>Enseignant</option>
-                    </select>
-                </div>
+        <div class="mainBody">
+            <form>
+                <fieldset>
+                    <legend>Coordonnées</legend>
+                    <div id="buttonsContainer">
+                        <input type="text" class="entree" id="name" name="user_name" placeholder="Dupont" class="textZone" required />
+                        <input type="text" class="entree" id="firstname" name="user_firstname" placeholder="Michel" class="textZone" required />
+                        <input type="email" class="entree" id="email" name="user_email" placeholder="michel.dupont@dupont.dupont" class="textZone" required />
+                        <select id="role">
+                            <option selected>Etudiant</option>
+                            <option>Enseignant</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <button type="submit">Ajouter</button>
-                    <button type="reset">Tout supprimer</button>
-                </div>
-            </fieldset>
+                    <div>
+                        <button type="submit">Ajouter</button>
+                        <button type="reset">Tout supprimer</button>
+                    </div>
+                </fieldset>
+            </form>
 
-        </form>
+            <table class="tableau">
+                <thead>
+                    <tr>
+                        <th class="cellule">Prénom</th>
+                        <th class="cellule">Prénom</th>
+                        <th class="cellule">Email</th>
+                        <th class="cellule">Rôle</th>
+                    </tr>
+                    <tr id="bodyTableau"><!-- Préparation pour l'ajout en js de nouveaux éléments --></tr>
+                </thead>
+            </table>
+        </div>
     </center>
+
+
 
     <footer style="position: fixed; bottom: 0px; left: 0px;"><p>Thibault DENIER<br>Ludovic LIU CHI PIOA</p></footer>
 </body>

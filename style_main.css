@@ -43,7 +43,7 @@ img {
     transition: caret-color 1s;
 }
 
-form {
+.mainBody {
     /* Ajout de l'ombre */
     box-shadow: 10px 5px 5px rgb(128, 128, 128);
     padding: 13px;
@@ -79,7 +79,7 @@ button:hover {
 }
 
 @media (min-width: 1000px) {
-    form {
+    .mainBody {
         width: 1000px;
     }
 }
@@ -91,4 +91,20 @@ button:hover {
         /* Pour avoir un affichage propre sur de petits écrans (sur plusieurs lignes si nécessaire) */
         flex-wrap: wrap;
     }
+}
+
+
+
+/* TP 3 */
+.tableau {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+}
+
+.cellule {
+    text-align: center;
+    border-style: inset;
+    border-width: 1px;
 }
